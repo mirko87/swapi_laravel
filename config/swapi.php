@@ -10,6 +10,6 @@ return [
 
     'url' => 'https://swapi.dev/api/',
     'non-ssl' => 'http://swapi.dev',
-    'source_url' => 'https://swapi.dev/',
+    'source_url' => 'https://swapi.dev',
 
 ];

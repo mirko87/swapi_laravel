@@ -329,7 +329,8 @@ trait SWAPI
             $data = $response->json();
         } else {
             // Substitute SWAPI url with app url so that our url can be in all displayed data.
-            $data = json_decode(str_replace(config('swapi.non-ssl'), config('app.url'), $response->body()), true);
+            $url_to_replace = str_contains($response->body(), config('swapi.non-ssl')) ? config('swapi.non-ssl') : config('swapi.source_url');
+            $data = json_decode(str_replace($url_to_replace, config('app.url'), $response->body()), true);
         }
 
         return ['status' => $status, 'data' => $data];
